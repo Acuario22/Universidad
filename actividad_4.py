@@ -42,41 +42,46 @@ bajo_4_porcentaje = 0
 for estudiante in estudiantes:
     notas = estudiante["notas"]
     promedio = sum(notas)/len(notas)
+    ##
     lista_promedios.append({"nombre":estudiante["nombre"], "promedio": promedio})
     print(estudiante["nombre"], "promedio:", round(promedio,2))
 
-    
+    ##
     if all(nota >= 4.0 for nota in notas):      
         aprobados = aprobados + 1
     """
     else:                                       
         bajo_4 = bajo_4 + 1
     """
-
+    
+    ##
     todas_las_notas.extend(estudiante["notas"])
 
+    ##
     if any(nota <4.0 for nota in notas):
         bajo_4 = bajo_4 + 1
 
-
+##
 prom_alto = max(lista_promedios, key=lambda x:x["promedio"] )
 prom_bajo = min(lista_promedios, key=lambda x:x["promedio"] )
 
+##
 moda = multimode(todas_las_notas)
 
 bajo_4_porcentaje = bajo_4/len(estudiantes)*100
 
+##
 lista_ordenada = sorted(lista_promedios, key=lambda x: x ["promedio"], reverse=True)
 
 print ("PUNTO 1")
-print(f"Alumno con el promedio más alto:", prom_alto["nombre"], "con promedio:", round(prom_alto["promedio"],2))
-print(f"Alumno con el promedio más bajo:", prom_bajo["nombre"], "con promedio:", round(prom_bajo["promedio"],2))
+print(f"Alumno/a con el promedio más alto:", prom_alto["nombre"], "con promedio:", round(prom_alto["promedio"],2))
+print(f"Alumno/a con el promedio más bajo:", prom_bajo["nombre"], "con promedio:", round(prom_bajo["promedio"],2))
 
 print ("PUNTO 2")
-print(f"Cantidad de alumnos que aprobaron todas sus asignaturas:" , aprobados)
+print("Cantidad de alumnos que aprobaron todas sus asignaturas:" , aprobados)
 
 print ("PUNTO 3")
-print(f"La nota mas frecuente fue de:", moda)
+print("La nota mas frecuente fue de:", moda)
 
 print ("PUNTO 4")
 print(f"El porcentaje de estudiantes con al menos una nota bajo 4.0 es de:", round(bajo_4_porcentaje,2),"%")
