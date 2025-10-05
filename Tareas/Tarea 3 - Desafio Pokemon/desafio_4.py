@@ -37,6 +37,7 @@ plt.show()
 
 #3-Crear un boxplot de los PS por tipo principal (Tipo 1)
 sns.boxplot(x="Tipo 1", y="PS", data=df_pokemon)
+
 plt.title("Boxplot de PS por Tipo 1")
 plt.xlabel("Tipo 1")
 plt.ylabel("PS")
@@ -44,6 +45,7 @@ plt.show()
 
 #4-Grafica la distribución de la defensa usando un diagrama de violín.
 sns.violinplot(y="Defensa", data=df_pokemon)
+
 plt.title("Diagrama de violín de la defensa")
 plt.ylabel("Defensa")
 plt.show()

@@ -46,3 +46,14 @@ dos_tipos = df_pokemon[df_pokemon["Tipo 2"] != "Ninguno"].shape[0]
 #shape[0] nos da la cantidad de filas y shape[1] la cantidad de columnas.
 print()
 print("La cantidad de pokemones con dos tipos es de:", dos_tipos)
+
+
+# Calculamos el rango de PS (máximo - mínimo)
+ps_rango = df_pokemon["PS"].max() - df_pokemon["PS"].min()
+print()
+print("El rango de PS de todos los Pokémon es:", ps_rango)
+
+# Calculamos la desviación estándar de PS
+ps_std = df_pokemon["PS"].std()
+print()
+print("La desviación estándar de PS es:", round(ps_std,1))
