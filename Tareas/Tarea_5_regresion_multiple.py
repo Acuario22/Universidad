@@ -1,4 +1,4 @@
-# Tarea 5: Regresión Lineal Múltiple para Predecir Precios de Departamentos
+#Tarea 5: Regresión Lineal Múltiple para predecir precios de departamentos
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -14,7 +14,7 @@ Construye un modelo de regresión lineal múltiple para predecir el 'Precio_UF' 
 """
 
 
-# 1. Datos y DataFrame
+#1.Datos y DataFrame
 datos = {'Superficie_m2': [50, 70, 65, 90, 45],
          'Num_Habitaciones': [1, 2, 2, 3, 1],
          'Distancia_Metro_km': [0.5, 1.2, 0.8, 0.2, 2.0],
@@ -22,17 +22,17 @@ datos = {'Superficie_m2': [50, 70, 65, 90, 45],
         }
 df = pd.DataFrame(datos)
 
-# 2. Definir X (múltiple) e y
+#2.Definir X (múltiple) e y
 X = df[['Superficie_m2', 'Num_Habitaciones', 'Distancia_Metro_km']]
 y = df['Precio_UF']
 
 
-# 3. Dividir datos y entrenar
+#3.Dividir datos y entrenar
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 model = LinearRegression()
 model.fit(X_train, y_train)
 
-# 4. Predecir y evaluar
+#4.Predecir y evaluar
 y_pred = model.predict(X_test)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))          #Error promedio
 r2 = r2_score(y_test, y_pred)                               #Qué tanto explica el modelo
