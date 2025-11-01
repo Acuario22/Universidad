@@ -46,7 +46,7 @@ plt.subplot(1,3,1)
 plt.text(0.5, 0.5, f"Precisión total:\n{precision*100:.2f}%", 
          fontsize=24, ha='center', va='center', color='green')
 plt.axis('off')
-plt.title("Accuracy del modelo")
+plt.title("Precisión del modelo de Clasificación")
 #Matriz de confusión
 plt.subplot(1,3,2)
 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False)
