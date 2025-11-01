@@ -4,13 +4,16 @@ from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
+#Para que no haya problemas al buscar el dataset
+import os
+os.chdir(os.path.dirname(__file__))
 
 # 1-Cargamos el dataset limpio
 df_simce_mat = pd.read_excel("dataset_simce_matematicas_limpio.xlsx")
 #print(df_simce_mat.head())
 
 #Objetivo
-#Predecir si una instituion tiene un rendimiento alto en matemáticas (rendimiento_alto)
+#Predecir si una institucion tiene un rendimiento alto en matemáticas (rendimiento_alto)
 
 # 2-Definir los features (X) y el target (y)
 x= df_simce_mat[ ["cod_grupo", "cod_depe1", "cod_rural_rbd"] ]
