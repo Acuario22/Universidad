@@ -7,8 +7,8 @@ df_simce_2022 = pd.read_excel("simce2m2022_rbd.xlsx")
 df_simce_2023 = pd.read_excel("simce2m2023_rbd.xlsx")
 
 
-# --- 2. Definir las columnas que queremos conservar ---
-# Estas son nuestras variables (X) y nuestro objetivo (Y)
+#2. Definir las columnas que queremos conservar
+#Estas son nuestras variables (X) y nuestro objetivo (Y)
 columnas_esenciales = [
     'agno',            # El año
     'rbd',             # El ID del colegio
@@ -18,7 +18,7 @@ columnas_esenciales = [
     'prom_mate2m_rbd'  # Nuestro Target Y: El puntaje de matemáticas
 ]
 
-# --- 3. Seleccionar solo esas columnas en cada DataFrame ---
+#3. Seleccionar solo esas columnas en cada DataFrame
 # (Ignoramos errores por si alguna columna faltara, aunque no debería)
 df_simce_2018_limpio = df_simce_2018[columnas_esenciales].copy()
 df_simce_2022_limpio = df_simce_2022[columnas_esenciales].copy()
@@ -38,11 +38,11 @@ df_simce_2023_limpio = df_simce_2023[columnas_2023].copy()
 df_simce_2023_limpio = df_simce_2023_limpio[columnas_esenciales]
 
 
-# --- 4. Unir (Concatenar) los 3 años en un solo "Dataset Maestro" ---
+#4. Unir (Concatenar) los 3 años en un solo "Dataset Maestro"
 df_maestro = pd.concat([df_simce_2018_limpio, df_simce_2022_limpio, df_simce_2023_limpio], ignore_index=True)
 
 
-# --- 5. Verificar el resultado ---
+#5. Verificar el resultado
 print("--- Información del Dataset Maestro Creado ---")
 print(df_maestro.info())
 
@@ -51,6 +51,6 @@ print(df_maestro.head())
 
 print(f"\nTotal de filas (colegios) en el dataset: {len(df_maestro)}")
 
-# --- 6. Guardar el Dataset Maestro en un nuevo archivo Excel ---
+#6. Guardar el Dataset Maestro en un nuevo archivo Excel
 df_maestro.to_excel("dataset_maestro_simce_matematicas_2018_2022_2023.xlsx", index=False)
 
