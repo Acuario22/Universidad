@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+import os
+os.chdir(os.path.dirname(__file__))
 
 #carga el dataset limpio
 df = pd.read_excel("dataset_simce_matematicas_limpio.xlsx")
@@ -16,7 +18,7 @@ print("Valores nulos por columna:\n", df.isnull().sum())
 y = df["prom_mate2m_rbd"]
 
 #variables independientes (X): año, dependencia, ruralidad
-X = df[["año", "cod_depe1", "cod_rural_rbd"]]
+X = df[["agno", "cod_depe1", "cod_rural_rbd"]]
 
 #dividir datos en entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(
@@ -43,8 +45,8 @@ print(f"Interseccion: {modelo.intercept_}")
 
 #visualizacionn (usando la variable año)
 plt.figure(figsize=(8,5))
-plt.scatter(X_test["año"], y_test, color='blue', label='Valores reales')
-plt.plot(X_test["año"], y_pred, color='red', linewidth=2, label='Predicción modelo')
+plt.scatter(X_test["agno"], y_test, color='blue', label='Valores reales')
+plt.plot(X_test["agno"], y_pred, color='red', linewidth=2, label='Predicción modelo')
 plt.xlabel("Año")
 plt.ylabel("Promedio SIMCE Matematicas")
 plt.title("Regresión Lineal: Promedio SIMCE vs Año")
@@ -53,5 +55,5 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-print("El modelo intenta estimar el puntaje SIMCE a partir del año, tipo de dependencia y ruralidad.")
-print("Un R² cercano a 1 indica buen ajuste. Si el valor es bajo, se recomienda incluir mas variables.")
+print("\nEl modelo intenta estimar el puntaje SIMCE a partir del año, tipo de dependencia y ruralidad.")
+print("Un R² cercano a 1 indica buen ajuste. Si el valor es bajo, se recomienda incluir mas variables.\n")
